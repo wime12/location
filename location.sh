@@ -15,4 +15,4 @@ done
 separator="${separator:-|}"
 
 fetch -q -o - "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text=%27$(urlencode "$1")%27" |
-mawk -f $AWKLIB/getxml.awk -f $AWKLIB/location.awk /dev/stdin $separator
+awk -f $AWKLIB/getxml.awk -f $AWKLIB/location.awk /dev/stdin $separator
