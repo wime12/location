@@ -40,26 +40,25 @@ BEGIN {
     if (XERROR) {
         print("Parse error: ", ARGV[1], "line", XLINE) > "/dev/stderr"
         exit
-    }
-    # for (x in data)
-    #     print x, "=", data[x]
-    # if (ARGV[2])
-    #    OFS=ARGV[2]
-    # else
-    #    OFS="|"
-    # if (results)
-    #     print("Nr", "City", "State", "Country", "ZIP", "Latitude",
-    #           "Longitude", "WOEID")
-    # for (i = 1; i <= results; i++) {
-    #     print(i, data[i, "city"], data[i, "state"], data[i, "line4"],
-    #           data[i, "uzip"], data[i,"latitude"], data[i,"longitude"],
-    #           data[i, "woeid"])
-    # }
-    for (i = 1; i <= results; i++) {
-	print(i ".", data[i, "city"] ",", data[i, "state"] ",", data[i, "line4"])
-	print("\t" "Zip:", data[i, "uzip"])
-	print("\t" "Latitude:", data[i, "latitude"] ",",
-		   "Longitude:", data[i, "longitude"])
-	print("\t" "WOEID:", data[i, "woeid"])
+    } else if (script) {
+	#for (x in data)
+	#    print x, "=", data[x]
+        OFS=separator
+	if (results)
+	    # print("Nr", "City", "State", "Country", "ZIP", "Latitude",
+		  # "Longitude", "WOEID")
+	for (i = 1; i <= results; i++) {
+	    print(i, data[i, "city"], data[i, "state"], data[i, "line4"],
+		  data[i, "uzip"], data[i,"latitude"], data[i,"longitude"],
+		  data[i, "woeid"])
+	}
+    } else {
+	for (i = 1; i <= results; i++) {
+	    print(i ".", data[i, "city"] ",", data[i, "state"] ",", data[i, "line4"])
+	    print("\t" "Zip:", data[i, "uzip"])
+	    print("\t" "Latitude:", data[i, "latitude"] ",",
+		       "Longitude:", data[i, "longitude"])
+	    print("\t" "WOEID:", data[i, "woeid"])
+	}
     }
 }
