@@ -8,27 +8,31 @@
 .SH NAME
 location \- search information about a geographical place
 .SH SYNOPSIS
-.B location
-[\fB\-h\fR]
-[\fB\-s\fR \fIseparator\fR]
+.SY location
+.OP \-h
+.OP \-s separator
 .I location
 .SH DESCRIPTION
 .B location
 queries the Yahoo! database for information about a geographical place.
-It displays the name of the location, the state, the country, the latitude,
-the longitude and the WOEID (Where On Earth IDentifier). One request can
-have multiple results.
+\fIlocation\fP is a string specifying what to search for.  It can
+contain a city or country name, a zip code etc.  Also combinations like
+"Springfield, Missoury" are possible.  It displays the name of the
+location, the state, the country, the latitude, the longitude and the
+WOEID (Where On Earth IDentifier).  A request can have multiple results.
 .SH OPTIONS
 .TP
 .B \-h
 Print the results in a more human readable format.
 .TP
 .BI "\-s " separator
-Specifies the field separator. Has no effect if the \fB\-h\fP option is used.
+Specifies the field separator.
+It has no effect if the \fB\-h\fP option is used.
 .SH ENVIRONMENT
 .TP
 .B AWKLIB
-The path where the awk files are found. By default set to $HOME/.awklib.
+The path where the awk files are found.
+By default set to $HOME/.awklib.
 See also section
 .BR FILES .
 .SH FILES
@@ -39,48 +43,49 @@ The XML parsing library.
 location.awk
 The parsing routines for location data.
 .SH EXAMPLES
-1. Search for New York. Display the result in human readable format
-.nf
-.RS
-
+1. Search for New York.
+Display the result in human readable format.
+.PP
+.EX
+.RS 4
 $ location -h "New York"
 1. New York, New York, United States
         Zip: 10007
         Latitude: 40.71455, Longitude: -74.00714
         WOEID: 2459115
 .RE
-.fi
+.EE
 .PP
-2. Search for New York in easily parsable form
-.nf
-.RS
-
+2. Search for New York in easily parsable form.
+.PP
+.EX
+.RS 4
 $ location "New York"
-1|New York|New York|United States|10007|40.71455|-74.00714|2459115
+1|New York|New York|United States|10007|40.71455|...
 .RE
-.fi
+.EE
 .PP
-3. Search for New York in easily parasable form with tabs as field delimiters.
-.nf
-.RS
-
+3. Search for New York in easily parsable form with tabs as field delimiters.
+.PP
+.EX
+.RS 4
 $ location -s "\\t" "New York"
-1	New York	New York	United States	10007	40.71455	-74.00714	2459115
+1	New York	New York	United States	10007...
 .RE
-.fi
+.EE
 .PP
 4. A query with multiple results
-.nf
-.RS
-
+.PP
+.EX
+.RS 4
 $ location Springfield
-1|Springfield|Missouri|United States|65806|37.20897|-93.29156|2498315
-2|Springfield|Massachusetts|United States|01103|42.10125|-72.58929|2498304
-3|Springfield|Illinois|United States|62701|39.80106|-89.6436|2498306
-4|Springfield|Ohio|United States|45502|39.92503|-83.80673|2498307
-...
+1|Springfield|Missouri|United States|65806|37.20897|...
+2|Springfield|Massachusetts|United States|01103|...
+3|Springfield|Illinois|United States|62701|39.80106|...
+4|Springfield|Ohio|United States|45502|39.92503|...
+\&...
 .RE
-.fi
+.EE
 .SH SEE ALSO
 weather(1)
 .SH BUGS
