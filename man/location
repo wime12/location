@@ -2,30 +2,38 @@
 .\" Contact wilfried.meindl@gmail.com to correct errors or typos.
 .TH man 1 "05 October 2015" "1.0" "location man page"
 .SH NAME
-location \- search information about a location in the world
+location \- search information about a geographical place
 .SH SYNOPSIS
 .B location
 [\fB\-e\fR]
 [\fB\-s\fR \fIseparator\fR]
 .I location
 .SH DESCRIPTION
-location queries the Yahoo! database for information about a location.
+.B location
+queries the Yahoo! database for information about a geographical place.
 It displays the name of the location, the state, the country, the latitude,
-the longitude and the WOEID.
+the longitude and the WOEID. The search can have multiple results.
 .SH OPTIONS
 .TP
 .B \-e
-output in a format suitable for parsing, e.g. in shell scripts.
-Otherwise a more human readable form will be used.
+Output in a format suitable for parsing line by line.
+Otherwise a more human readable form is used.
 .TP
 .BI "\-s " separator
-Specifies the separator used to separate the fields when the
+Specifies the field separator if the
 .B \-e
-option is used. Otherwise this option is meaningless.
+option is used. The default is "|".
 .SH EXAMPLES
+To search for a location named "Springfield" use
+.PP
+.nf
+.RS
 location "Springfield"
+.RE
+.fi
+.PP
 .SH SEE ALSO
-weather1)
+weather(1)
 .SH BUGS
 No known bugs.
 .SH AUTHOR
