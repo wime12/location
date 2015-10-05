@@ -1,0 +1,33 @@
+.\" Manpage for location
+.\" Contact wilfried.meindl@gmail.com to correct errors or typos.
+.TH man 1 "05 October 2015" "1.0" "location man page"
+.SH NAME
+location \- search information about a location in the world
+.SH SYNOPSIS
+.B location
+[\fB\-e\fR]
+[\fB\-s\fR \fIseparator\fR]
+.I location
+.SH DESCRIPTION
+location queries the Yahoo! database for information about a location.
+It displays the name of the location, the state, the country, the latitude,
+the longitude and the WOEID.
+.SH OPTIONS
+.TP
+.B \-e
+output in a format suitable for parsing, e.g. in shell scripts.
+Otherwise a more human readable form will be used.
+.TP
+.BI "\-s " separator
+Specifies the separator used to separate the fields when the
+.B \-e
+option is used. Otherwise this option is meaningless.
+.SH EXAMPLES
+location "Springfield"
+.SH SEE ALSO
+weather1)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Wilfried Meindl <wilfried.meindl@gmail.com>
+
