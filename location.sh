@@ -2,7 +2,7 @@
 
 AWKLIB=${AWKLIB:-/usr/local/share/awklib}
 SHLIB=${SHLIB:-/usr/local/share/shlib}
-AWKFILE_DIR=${AWFILE_DIR:-/usr/local/share/location}
+AWKFILE_DIR=${AWKFILE_DIR:-/usr/local/share/location}
 
 . $SHLIB/urlencode.sh
 
