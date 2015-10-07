@@ -1,6 +1,9 @@
 #!/bin/sh
-AWKLIB=~/.awklib
-SHLIB=~/.shlib
+
+PREFIX=/usr/local
+
+AWKLIB=$PREFIX/share/awklib
+SHLIB=$PREFIX/share/shlib
 
 . $SHLIB/urlencode.sh
 
