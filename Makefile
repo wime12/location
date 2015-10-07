@@ -11,7 +11,7 @@ MANDIR=$(PREFIX)/share/man/man1
 # END of custom lines
 
 install:
-	sed "s#AWKLIB=.*#AWKLIB=\$\{AWKLIB:-$(AWKLIB)\}#;s#SHLIB=.*#SHLIB=\$i\{SHLIB:-$(SHLIB)\}#;s#AWKFILE_DIR=.*#AWKFILE_DIR=\$\{AWKFILE:-$(AWKFILE_DIR)\}#" < location.sh > location.sh.new
+	sed "s#AWKLIB=.*#AWKLIB=$$\{AWKLIB:-$(AWKLIB)\}#;s#SHLIB=.*#SHLIB=$$\{SHLIB:-$(SHLIB)\}#;s#AWKFILE_DIR=.*#AWKFILE_DIR=$$\{AWKFILE:-$(AWKFILE_DIR)\}#" < location.sh > location.sh.new
 	test -d $(BINDIR) || mkdir -p $(BINDIR)
 	install -m 0755 location.sh.new $(BINDIR)/location
 	rm location.sh.new
