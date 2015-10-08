@@ -17,10 +17,12 @@ install:
 	rm location.sh.new
 	test -d $(AWKFILE_DIR) || mkdir -p $(AWKFILE_DIR)
 	install -m 0644 location.awk $(AWKFILE_DIR)
+	sed "s#getxml.awk#$(AWKLIB)/getxml.awk#;s#location.awk#$(AWKFILE_DIR)/location.awk#" < location.1 > location.1.new
 	test -d $(MANDIR) || mkdir -p $(MANDIR)
-	install -m 0644 location.1 $(MANDIR)
+	install -m 0644 location.1.new $(MANDIR)/location.1
+	rm location.1.new
 
 clean:
-	rm -f location.sh.new
+	rm -f location.sh.new location.1.new
 
 .PHONY: install clean
