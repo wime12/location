@@ -41,12 +41,8 @@ BEGIN {
         print("Parse error: ", ARGV[1], "line", XLINE) > "/dev/stderr"
         exit
     } else if (script) {
-	#for (x in data)
-	#    print x, "=", data[x]
         OFS=separator
 	if (results)
-	    # print("Nr", "City", "State", "Country", "ZIP", "Latitude",
-		  # "Longitude", "WOEID")
 	for (i = 1; i <= results; i++) {
 	    print(i, data[i, "city"], data[i, "state"], data[i, "line4"],
 		  data[i, "uzip"], data[i,"latitude"], data[i,"longitude"],
